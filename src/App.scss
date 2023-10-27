@@ -1,0 +1,108 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+$cell-height: 10px;
+$cell-width: 10px;
+$cell-margin: 2px;
+$cell-weekdays-width: 42px;
+
+.timeline {
+  &_body {
+    display: flex;
+  }
+
+  &_months {
+    display: flex;
+    padding-left: $cell-weekdays-width;
+    font-size: 10px;
+
+    &_month {
+      width: 9.4px;
+      margin: $cell-margin;
+      border: 1px solid transparent;
+
+      &.current {
+        visibility: hidden;
+      }
+
+      &:nth-of-type(51) {
+        visibility: visible !important;
+      }
+    }
+
+    .Jan~.Jan,
+    .Feb~.Feb,
+    .Mar~.Mar,
+    .Apr~.Apr,
+    .May~.May,
+    .Jun~.Jun,
+    .Jul~.Jul,
+    .Aug~.Aug,
+    .Sep~.Sep,
+    .Oct~.Oct,
+    .Nov~.Nov,
+    .Dec~.Dec {
+      visibility: hidden;
+    }
+
+  }
+
+  &_cells {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: #{(10 + 4) * 8}px;
+  }
+
+  &_weeks {
+    display: flex;
+    flex-direction: column;
+    &_week {
+      font-size: 10px;
+      height: $cell-height;
+      // width: $cell-width;
+      margin: 2px;
+      border: 1px solid transparent;
+    }
+  }
+}
+
+.cell {
+  height: $cell-height;
+  width: $cell-width;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin: $cell-margin;
+  background: rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+
+.alert {
+  position: absolute;
+  background: black;
+  z-index: 999;
+  p {
+    color: #7C7C7C;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  strong {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
